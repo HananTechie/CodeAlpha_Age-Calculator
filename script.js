@@ -42,5 +42,7 @@ var calculateAge = (date) => {
     month.innerHTML = months;
     day.innerHTML = days;
 
-    ageBox.style.visibility = "visible";
+    ageBox.classList.add("visible");
+
+    date.innerHTML = "";
 };

@@ -27,9 +27,10 @@ body {
     justify-content: center;
     align-items: center;
     gap: 20px;
+    animation: fadeIn 1s ease-in-out;
 }
 
-.heading{
+.heading {
     margin-top: 10px;
 }
 
@@ -49,6 +50,12 @@ body {
     border-radius: 10px;
     font-size: 16px;
     padding: 5px;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+#inputDate:focus {
+    border-color: #0553e2;
+    transform: scale(1.05);
 }
 
 .calculate {
@@ -60,11 +67,12 @@ body {
     padding: 5px;
     background-color: #0553e2;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .calculate:hover {
     background-color: #033fad;
+    transform: scale(1.05);
 }
 
 .age {
@@ -74,6 +82,13 @@ body {
     justify-content: space-between;
     align-items: center;
     visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s ease-in-out;
+}
+
+.age.visible {
+    visibility: visible;
+    opacity: 1;
 }
 
 .box {
@@ -88,9 +103,32 @@ body {
     color: #fff;
     font-size: 24px;
     flex-direction: column;
+    transform: scale(0.8);
+    opacity: 0;
+    animation: popIn 0.5s ease-out forwards;
 }
 
 .box span {
     display: block;
     font-size: 30px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
